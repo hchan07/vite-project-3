@@ -1,7 +1,7 @@
 const Header = () => {
 	return (
 		<div>I am a test header</div>
-	)
+	);
 };
 
 
