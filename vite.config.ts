@@ -1,5 +1,3 @@
-/// <reference types="vitest" />
-
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 
@@ -12,7 +10,10 @@ export default defineConfig(() => ({
     setupFiles: './vitest.setup.ts',
     css: true,
     testTimeout: 5000,
-    reporters: ['verbose']
+    reporters: ['verbose'],
+    coverage: {
+      provider: 'v8' // or 'istanbul'
+    },    
   }
 }));
 

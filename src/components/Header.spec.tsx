@@ -7,7 +7,3 @@ describe('Header', () => {
 		expect(screen.getByText(/header/i)).toBeInTheDocument();
 	});
 });
-
-
-
-
