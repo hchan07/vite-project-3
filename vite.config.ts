@@ -10,7 +10,10 @@ export default defineConfig(() => ({
     setupFiles: './vitest.setup.ts',
     css: true,
     testTimeout: 5000,
-    reporters: ['verbose']
+    reporters: ['verbose'],
+    coverage: {
+      provider: 'v8' // or 'istanbul'
+    },    
   }
 }));
 
