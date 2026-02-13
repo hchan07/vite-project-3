@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  tests:
+  pre-merge:
     runs-on: ubuntu-latest
 
     steps:
