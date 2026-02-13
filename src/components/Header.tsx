@@ -1,10 +1,14 @@
 type HeaderProps = {
 	title?: string
-}
+};
 
 const Header = (props: HeaderProps) => {
-	if (props.title) {
-		return <div>title</div>
+	const {
+		title
+	} = props;
+
+	if (title) {
+		return <div>title</div>;
 	}
 
 	return (

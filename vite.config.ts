@@ -12,7 +12,8 @@ export default defineConfig(() => ({
     testTimeout: 5000,
     reporters: ['verbose'],
     coverage: {
-      provider: 'v8' // or 'istanbul'
+      provider: 'v8', // or 'istanbul'
+      include: ['src/**/*.{ts,tsx}']
     },    
   }
 }));
