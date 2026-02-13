@@ -8,11 +8,12 @@ export default defineConfig(() => ({
   plugins: [
     tanstackRouter({
       target: 'react',
-      autoCodeSplitting: true,
+      autoCodeSplitting: false,
     }),
     react(),
     tailwindcss()
   ],
+  base: '/vite-project-3/',
   test: {
     globals: true,
     environment: 'jsdom',
