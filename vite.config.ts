@@ -1,9 +1,18 @@
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react-swc';
+import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
+import { tanstackRouter } from '@tanstack/router-plugin/vite';
 
 // https://vite.dev/config/
 export default defineConfig(() => ({
-  plugins: [react()],
+  plugins: [
+    tanstackRouter({
+      target: 'react',
+      autoCodeSplitting: true,
+    }),
+    react(),
+    tailwindcss()
+  ],
   test: {
     globals: true,
     environment: 'jsdom',
@@ -12,7 +21,8 @@ export default defineConfig(() => ({
     testTimeout: 5000,
     reporters: ['verbose'],
     coverage: {
-      provider: 'v8' // or 'istanbul'
+      provider: 'v8', // or 'istanbul'
+      include: ['src/**/*.{ts,tsx}']
     },    
   }
 }));
