@@ -10,6 +10,9 @@ const RootLayout = () => (
       <Link to="/about" className="[&.active]:font-bold">
         About
       </Link>
+      <Link to="/pokemon/$id" params={{id:'1'}} className="[&.active]:font-bold">
+        Pokemon
+      </Link>      
     </div>
     <hr />
     <Outlet />
