@@ -1,0 +1,10 @@
+dev.my-project.dev {
+	reverse_proxy localhost:5173
+	tls internal
+}
+
+# Use this to see the production build
+my-project.dev {
+	reverse_proxy localhost:4173
+	tls internal
+}
