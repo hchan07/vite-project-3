@@ -57,7 +57,7 @@ const Render = () => {
 		<ul>
 			{
 				fruits.map( (fruit: string) => {
-					return <li key={fruit}>{fruit}</li>
+					return <li key={fruit}>{fruit}</li>;
 				})
 			}
 		</ul>

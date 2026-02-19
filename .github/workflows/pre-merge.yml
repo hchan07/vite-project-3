@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Display branch name
+        run: echo "The current branch name is ${{ github.ref_name }}"
+        
       - name: Checkout
         uses: actions/checkout@v6
 
