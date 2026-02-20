@@ -32,9 +32,15 @@ jobs:
       - name: Build project
         run: npm run predeploy
 
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+            
+      - name: Upload production-ready build files
+        uses: actions/upload-pages-artifact@v4
         with:
-          folder: dist # The folder the action should deploy
-        
+          name: production-files
+          path: ./dist
       
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
