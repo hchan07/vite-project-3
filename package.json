@@ -5,10 +5,10 @@
   "homepage": "https://hchan07.github.io/vite-project-3/",
   "type": "module",
   "scripts": {
-    "dev": "vite & caddy run",
+    "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview & caddy run",
+    "preview": "vite preview",
     "test": "vitest run",
     "coverage": "vitest run --coverage",
     "predeploy": "npm run build && cp ./dist/index.html ./dist/404.html"
