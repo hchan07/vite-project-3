@@ -5,7 +5,6 @@ import { useLogoutMutation } from '../hooks/useLogoutMutation';
 import { useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from '@tanstack/react-router';
 
-
 const RootLayout = () => {
   const { data: user, isLoading } = useUser();
   const logoutMutation = useLogoutMutation();
@@ -38,12 +37,22 @@ const RootLayout = () => {
         </Link>  
         <Link to="/render" className="[&.active]:font-bold">
           Render
-        </Link> 
-<div className="ml-auto flex gap-4">
+        </Link>
+          {
+          isLoading 
+            ? (<span className="text-xs opacity-50">Checking auth...</span>) 
+            : user 
+              ? (<Link to="/todos" className="[&.active]:font-bold">Todos</Link>             ) 
+              : null
+          }
+        <div className="ml-auto flex gap-4">
           {isLoading ? (
             <span className="text-xs opacity-50">Checking auth...</span>
-          ) : user ? (
-            // LOGGED IN STATE
+          ) : 
+          user ? (
+          <>
+            
+            {/* LOGGED IN STATE */}
             <div className="flex gap-4 items-center">
               <span className="text-sm border-r pr-4">Welcome, {user.email}</span>
               
@@ -52,7 +61,7 @@ const RootLayout = () => {
                 Logout
               </button>
             </div>
-            
+            </>            
           ) : (
             // LOGGED OUT STATE
             <>

@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TodosRouteImport } from './routes/todos'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as RenderRouteImport } from './routes/render'
 import { Route as LoginRouteImport } from './routes/login'
@@ -16,6 +17,11 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PokemonIdRouteImport } from './routes/pokemon/$id'
 
+const TodosRoute = TodosRouteImport.update({
+  id: '/todos',
+  path: '/todos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SignupRoute = SignupRouteImport.update({
   id: '/signup',
   path: '/signup',
@@ -53,6 +59,7 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/render': typeof RenderRoute
   '/signup': typeof SignupRoute
+  '/todos': typeof TodosRoute
   '/pokemon/$id': typeof PokemonIdRoute
 }
 export interface FileRoutesByTo {
@@ -61,6 +68,7 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/render': typeof RenderRoute
   '/signup': typeof SignupRoute
+  '/todos': typeof TodosRoute
   '/pokemon/$id': typeof PokemonIdRoute
 }
 export interface FileRoutesById {
@@ -70,13 +78,28 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/render': typeof RenderRoute
   '/signup': typeof SignupRoute
+  '/todos': typeof TodosRoute
   '/pokemon/$id': typeof PokemonIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/login' | '/render' | '/signup' | '/pokemon/$id'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/login'
+    | '/render'
+    | '/signup'
+    | '/todos'
+    | '/pokemon/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/login' | '/render' | '/signup' | '/pokemon/$id'
+  to:
+    | '/'
+    | '/about'
+    | '/login'
+    | '/render'
+    | '/signup'
+    | '/todos'
+    | '/pokemon/$id'
   id:
     | '__root__'
     | '/'
@@ -84,6 +107,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/render'
     | '/signup'
+    | '/todos'
     | '/pokemon/$id'
   fileRoutesById: FileRoutesById
 }
@@ -93,11 +117,19 @@ export interface RootRouteChildren {
   LoginRoute: typeof LoginRoute
   RenderRoute: typeof RenderRoute
   SignupRoute: typeof SignupRoute
+  TodosRoute: typeof TodosRoute
   PokemonIdRoute: typeof PokemonIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/todos': {
+      id: '/todos'
+      path: '/todos'
+      fullPath: '/todos'
+      preLoaderRoute: typeof TodosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/signup': {
       id: '/signup'
       path: '/signup'
@@ -149,6 +181,7 @@ const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   RenderRoute: RenderRoute,
   SignupRoute: SignupRoute,
+  TodosRoute: TodosRoute,
   PokemonIdRoute: PokemonIdRoute,
 }
 export const routeTree = rootRouteImport

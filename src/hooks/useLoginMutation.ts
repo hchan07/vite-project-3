@@ -13,12 +13,21 @@ export const useLoginMutation = () => {
   			},			
 				credentials: 'include'
 			});
-			return res.json();
+
+			const data = await res.json();
+
+			if (!res.ok) {
+				
+				// This "throw" is what triggers onError
+				throw new Error(data?.msg);
+			}
+
+			return {...data};
 		},
     
     
     onError: (error) => {
-      console.error('Login Error:', error.message);
+      console.error('Add todo Error:', error.message);
     }
   });
 };

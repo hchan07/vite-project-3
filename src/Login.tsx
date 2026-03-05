@@ -73,12 +73,14 @@ const Login = () => {
       email: string;
       password: string;
     };
-  	setLoading(true);
+
+    setLoading(true);
 
     loginMutation.mutate(data, {
-          // Global side effects live here
+
     onSuccess: (data) => {
       setLoading(false);
+
       // Sync the 'user' query immediately
       queryClient.setQueryData(['user'], data.user);
       // Optional: invalidate to be safe
@@ -86,6 +88,10 @@ const Login = () => {
       
       navigate({ to: '/' });
     },
+    onError: (error) => {
+      console.log(error.message);
+      setLoading(false);
+    }
     });
   };
 
