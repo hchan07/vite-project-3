@@ -88,7 +88,12 @@ const handleSignUp = async (e: React.SubmitEvent < HTMLFormElement > ) => {
                     navigate({
                         to: '/'
                     });
-                }
+                },
+								onError: (error) => {
+								
+									setLoading(false);
+									console.log(error.message);
+								}
             });
 					};
   return (
