@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WordleRouteImport } from './routes/wordle'
 import { Route as TodosRouteImport } from './routes/todos'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as RenderRouteImport } from './routes/render'
@@ -17,6 +18,11 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PokemonIdRouteImport } from './routes/pokemon/$id'
 
+const WordleRoute = WordleRouteImport.update({
+  id: '/wordle',
+  path: '/wordle',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TodosRoute = TodosRouteImport.update({
   id: '/todos',
   path: '/todos',
@@ -60,6 +66,7 @@ export interface FileRoutesByFullPath {
   '/render': typeof RenderRoute
   '/signup': typeof SignupRoute
   '/todos': typeof TodosRoute
+  '/wordle': typeof WordleRoute
   '/pokemon/$id': typeof PokemonIdRoute
 }
 export interface FileRoutesByTo {
@@ -69,6 +76,7 @@ export interface FileRoutesByTo {
   '/render': typeof RenderRoute
   '/signup': typeof SignupRoute
   '/todos': typeof TodosRoute
+  '/wordle': typeof WordleRoute
   '/pokemon/$id': typeof PokemonIdRoute
 }
 export interface FileRoutesById {
@@ -79,6 +87,7 @@ export interface FileRoutesById {
   '/render': typeof RenderRoute
   '/signup': typeof SignupRoute
   '/todos': typeof TodosRoute
+  '/wordle': typeof WordleRoute
   '/pokemon/$id': typeof PokemonIdRoute
 }
 export interface FileRouteTypes {
@@ -90,6 +99,7 @@ export interface FileRouteTypes {
     | '/render'
     | '/signup'
     | '/todos'
+    | '/wordle'
     | '/pokemon/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -99,6 +109,7 @@ export interface FileRouteTypes {
     | '/render'
     | '/signup'
     | '/todos'
+    | '/wordle'
     | '/pokemon/$id'
   id:
     | '__root__'
@@ -108,6 +119,7 @@ export interface FileRouteTypes {
     | '/render'
     | '/signup'
     | '/todos'
+    | '/wordle'
     | '/pokemon/$id'
   fileRoutesById: FileRoutesById
 }
@@ -118,11 +130,19 @@ export interface RootRouteChildren {
   RenderRoute: typeof RenderRoute
   SignupRoute: typeof SignupRoute
   TodosRoute: typeof TodosRoute
+  WordleRoute: typeof WordleRoute
   PokemonIdRoute: typeof PokemonIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/wordle': {
+      id: '/wordle'
+      path: '/wordle'
+      fullPath: '/wordle'
+      preLoaderRoute: typeof WordleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/todos': {
       id: '/todos'
       path: '/todos'
@@ -182,6 +202,7 @@ const rootRouteChildren: RootRouteChildren = {
   RenderRoute: RenderRoute,
   SignupRoute: SignupRoute,
   TodosRoute: TodosRoute,
+  WordleRoute: WordleRoute,
   PokemonIdRoute: PokemonIdRoute,
 }
 export const routeTree = rootRouteImport

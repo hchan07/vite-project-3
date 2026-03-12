@@ -38,6 +38,9 @@ const RootLayout = () => {
         <Link to="/render" className="[&.active]:font-bold">
           Render
         </Link>
+        <Link to="/wordle" className="[&.active]:font-bold">
+          Wordle
+        </Link>        
           {
           isLoading 
             ? (<span className="text-xs opacity-50">Checking auth...</span>) 
