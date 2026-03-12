@@ -1,126 +1,124 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 2rem;
+	text-align: center;
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+	height: 6em;
+	padding: 1.5em;
+	will-change: filter;
+	transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+	filter: drop-shadow(0 0 2em #646cffaa);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+	filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
 @keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+	a:nth-of-type(2) .logo {
+		animation: logo-spin infinite 20s linear;
+	}
 }
 
-
 .card {
-  width: 50px;
-  height: 60px;
-
+	width: 50px;
+	height: 60px;
 }
 
 .inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.6s;
-  transform-style: preserve-3d; /* Required for the faces to "stack" in 3D
+	position: relative;
+	width: 100%;
+	height: 100%;
+	transition: transform 0.6s;
+	transform-style: preserve-3d; /* Required for the faces to "stack" in 3D
   */
-  /* This calculates the wait time: 0.2s * the card's position */
-  transition-delay: calc(var(--order) * 0.2s);
+	/* This calculates the wait time: 0.2s * the card's position */
+	transition-delay: calc(var(--order) * 0.2s);
 }
 
 .card-container {
-  display: flex;
-  gap: 5px;
-  margin: 20px;
+	display: flex;
+	gap: 5px;
+	margin: 20px;
 }
 
 /* The flip action */
 
 .card-container-flip .card .inner {
-  transform: rotateX(-180deg); 
+	transform: rotateX(-180deg);
 }
 
-.front, .back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden; /* Hides the "underneath" side */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid black;
+.front,
+.back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden; /* Hides the "underneath" side */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid black;
 }
 
 .no-transition {
-  transition: none !important;
+	transition: none !important;
 }
 
 .back {
-  transform: rotateX(-180deg); /* Starts "upside down" behind the front */
+	transform: rotateX(-180deg); /* Starts "upside down" behind the front */
 }
 
 .yellow {
- background: yellow;
+	background: yellow;
 }
 
 .green {
- background: green;
+	background: green;
 }
 
 .gray {
- background: gray;
+	background: gray;
 }
 
 .white {
-  background: white;
+	background: white;
 }
 
 .placement-0 {
-  --order: 0;
+	--order: 0;
 }
 
 .placement-1 {
-  --order: 1;
+	--order: 1;
 }
 
 .placement-2 {
-  --order: 2;
+	--order: 2;
 }
 
 .placement-3 {
-  --order: 3;
+	--order: 3;
 }
 
 .placement-4 {
-  --order: 4;
+	--order: 4;
 }
 
 .placement-5 {
-  --order: 5;
+	--order: 5;
 }
-
