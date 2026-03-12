@@ -33,7 +33,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Install Dependencies
-        run: pnpm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Build project
         run: pnpm run predeploy
