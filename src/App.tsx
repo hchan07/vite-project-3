@@ -4,23 +4,23 @@ import viteLogo from '/vite.svg';
 import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0);
+	const [count, setCount] = useState(0);
 
-  return (
-    <>
-      <div>
-        <img src={viteLogo} className="logo" alt="Vite logo" />
-        <img src={reactLogo} className="logo react" alt="React logo" />
-      </div>
-      <h1>Test project</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>test branch</p>
-      </div>
-    </>
-  );
+	return (
+		<>
+			<div>
+				<img src={viteLogo} className="logo" alt="Vite logo" />
+				<img src={reactLogo} className="logo react" alt="React logo" />
+			</div>
+			<h1>Test project</h1>
+			<div className="card">
+				<button onClick={() => setCount((count) => count + 1)}>
+					count is {count}
+				</button>
+				<p>test branch</p>
+			</div>
+		</>
+	);
 }
 
 export default App;

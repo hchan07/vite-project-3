@@ -1,20 +1,15 @@
 type HeaderProps = {
-	title?: string
+	title?: string;
 };
 
 const Header = (props: HeaderProps) => {
-	const {
-		title
-	} = props;
+	const { title } = props;
 
 	if (title) {
 		return <div>title</div>;
 	}
 
-	return (
-		<div>I am a test header</div>
-	);
+	return <div>I am a test header</div>;
 };
-
 
 export default Header;
