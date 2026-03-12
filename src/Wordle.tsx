@@ -226,7 +226,7 @@ const simulateSyncWithBackend = () => {
 
 const simulateSecondGuess = (word: string) => {
   const letters = word.split('');
-  console.log(remainingTurns);
+
   letters.forEach((letter, index) => {
     setTimeout(() => {
 		setRemainTurns((prev) => {
