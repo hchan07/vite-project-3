@@ -4,3 +4,5 @@ src/routeTree.gen.ts
 # You might also want to ignore other common folders
 node_modules
 dist
+
+pnpm-lock.yaml
